@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  font-family:'DotGothic16',sans-serif;
+  background:#bff6ff;
+}
+
+button{
+  font-family:'DotGothic16',sans-serif;
+}
+
+#app{
+  width:100vw;
+  height:100dvh;
+  max-width:520px;
+  margin:0 auto;
+  overflow:hidden;
+  position:relative;
+
+  background:
+    linear-gradient(
+      180deg,
+      #bff6ff 0%,
+      #dfffe8 45%,
+      #fff6b8 100%
+    );
+
+  border-left:4px solid #263238;
+  border-right:4px solid #263238;
+}
+
+.screen{
+  display:none;
+  width:100%;
+  height:100%;
+  padding:14px;
+}
+
+.screen.active{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* タイトル */
+
+.titleImage{
+  width:min(92%,420px);
+  margin-top:8px;
+  image-rendering:pixelated;
+  cursor:pointer;
+}
+
+.ruleBox{
+  width:min(92%,420px);
+
+  margin-top:12px;
+  padding:12px;
+
+  background:rgba(255,255,255,.9);
+
+  border:3px solid #263238;
+
+  text-align:center;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.mainBtn{
+  margin-top:14px;
+
+  width:min(92%,320px);
+
+  padding:14px;
+
+  background:#fff36d;
+
+  border:3px solid #263238;
+
+  box-shadow:4px 4px 0 #263238;
+
+  font-size:18px;
+}
+
+.mainBtn:active,
+.resultButton:active,
+.controls button:active,
+.miniBtn:active{
+  transform:translate(3px,3px);
+  box-shadow:1px 1px 0 #263238;
+}
+
+/* ゲーム画面 */
+
+.miniBtn{
+  position:absolute;
+  top:10px;
+  right:10px;
+
+  z-index:100;
+
+  padding:6px 8px;
+
+  background:#fff;
+
+  border:2px solid #263238;
+
+  box-shadow:2px 2px 0 #263238;
+
+  font-size:12px;
+}
+
+.hud{
+  width:100%;
+
+  margin-top:34px;
+
+  display:flex;
+  gap:8px;
+}
+
+.hud div{
+  flex:1;
+
+  background:#fff;
+
+  border:3px solid #263238;
+
+  text-align:center;
+
+  padding:6px;
+
+  font-size:15px;
+}
+
+.machine{
+  position:relative;
+
+  width:100%;
+  height:calc(100dvh - 220px);
+
+  min-height:420px;
+
+  margin-top:10px;
+
+  border:4px solid #263238;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.75),
+      rgba(255,255,255,.25)
+    );
+}
+
+#gameArea{
+  position:absolute;
+  inset:0;
+  z-index:1;
+}
+
+.crane{
+  position:absolute;
+
+  top:0;
+
+  width:60px;
+  height:70px;
+
+  transform:translateX(-50%);
+
+  z-index:30;
+
+  pointer-events:none;
+}
+
+.rail{
+  position:absolute;
+
+  top:0;
+  left:50%;
+
+  width:8px;
+  height:42px;
+
+  transform:translateX(-50%);
+
+  background:#263238;
+}
+
+.hook{
+  position:absolute;
+
+  top:30px;
+  left:0;
+
+  width:100%;
+
+  text-align:center;
+
+  font-size:28px;
+}
+
+.exitLabel{
+  position:absolute;
+
+  bottom:8px;
+
+  width:70px;
+
+  text-align:center;
+
+  padding:4px;
+
+  background:#263238;
+
+  color:#fff;
+
+  border:2px solid #fff;
+
+  z-index:20;
+
+  font-size:13px;
+}
+
+.exitLeft{
+  left:8px;
+}
+
+.exitRight{
+  right:8px;
+}
+
+.message{
+  width:100%;
+
+  height:24px;
+
+  margin-top:8px;
+
+  text-align:center;
+
+  font-size:15px;
+  font-weight:bold;
+}
+
+.controls{
+  width:100%;
+
+  margin-top:6px;
+
+  display:grid;
+
+  grid-template-columns:1fr 1.4fr 1fr;
+
+  gap:8px;
+}
+
+.controls button{
+  padding:12px 0;
+
+  background:#fff;
+
+  border:3px solid #263238;
+
+  box-shadow:3px 3px 0 #263238;
+
+  font-size:18px;
+}
+
+#dropBtn{
+  background:#ffb3d9;
+}
+
+/* 結果画面 */
+
+.resultImage{
+  width:min(90%,340px);
+
+  margin-top:10px;
+
+  image-rendering:pixelated;
+}
+
+#resultTitle{
+  margin-top:10px;
+
+  font-size:28px;
+
+  text-align:center;
+}
+
+.resultScore{
+  margin-top:8px;
+
+  font-size:34px;
+
+  font-weight:bold;
+}
+
+/* 共通結果ボタン */
+
+.resultButtons{
+  width:min(92%,360px);
+
+  margin-top:18px;
+
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:10px;
+
+  opacity:1;
+
+  transform:translateY(0);
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease;
+}
+
+.resultButtons.hidden{
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+}
+
+.resultButton{
+  width:100%;
+  min-height:56px;
+
+  padding:8px 6px;
+
+  background:#fff36d;
+
+  border:3px solid #263238;
+
+  box-shadow:4px 4px 0 #263238;
+
+  font-size:17px;
+}
+
+/* Matter.js画像 */
+
+.prizeSprite{
+  position:absolute;
+  pointer-events:none;
+  user-select:none;
+  z-index:10;
+}
+
+.weightSprite{
+  position:absolute;
+  pointer-events:none;
+  user-select:none;
+  z-index:11;
+}

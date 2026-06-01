@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>カバキャッチャー</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+  <div id="app">
+
+    <section id="titleScreen" class="screen active">
+      <img
+        id="titleImage"
+        class="titleImage"
+        src="title.png"
+        alt="カバキャッチャー"
+      />
+
+      <div class="ruleBox">
+        <p>山積みのカバぬいに<br>重りを落とそう！</p>
+        <p>3回のチャンスで<br>左右端の出口へ落とせ！</p>
+        <p>通常カバ1点<br>サングラスカバ5点<br>王冠カバ10点</p>
+      </div>
+
+      <button id="startBtn" class="mainBtn">タップしてスタート</button>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <button id="backTitleBtn" class="miniBtn">タイトルへ戻る</button>
+
+      <div class="hud">
+        <div>SHOT <span id="shotText">1</span> / 3</div>
+        <div>SCORE <span id="scoreText">0</span></div>
+      </div>
+
+      <div class="machine">
+        <div id="crane" class="crane">
+          <div class="rail"></div>
+          <div class="hook">▼</div>
+        </div>
+
+        <div id="gameArea"></div>
+
+        <div class="exitLabel exitLeft">出口</div>
+        <div class="exitLabel exitRight">出口</div>
+      </div>
+
+      <div id="message" class="message">位置を決めてDROP！</div>
+
+      <div class="controls">
+        <button id="leftBtn">◀</button>
+        <button id="dropBtn">DROP</button>
+        <button id="rightBtn">▶</button>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <img
+        id="resultImage"
+        class="resultImage"
+        src="result1.png"
+        alt="結果画像"
+      />
+
+      <h2 id="resultTitle">結果</h2>
+
+      <div id="resultScore" class="resultScore">0点</div>
+
+      <div id="resultButtons" class="resultButtons hidden">
+        <button id="shareButton" class="resultButton">Xでシェア</button>
+        <button id="registerButton" class="resultButton">記録を登録</button>
+        <button id="retryButton" class="resultButton">もう1回遊ぶ</button>
+        <button id="arcadeButton" class="resultButton">カバゲーセンへ</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="game.js?v=20260601-1"></script>
+</body>
+</html>
