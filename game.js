@@ -882,7 +882,7 @@ registerButton.addEventListener(
 
 retryButton.addEventListener(
   "click",
-  startGame
+  backToTitle
 );
 
 arcadeButton.addEventListener(
