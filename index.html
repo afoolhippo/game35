@@ -23,9 +23,9 @@
       />
 
       <div class="ruleBox">
-        <p>山積みのカバぬいに<br>重りを落とそう！</p>
-        <p>3回のチャンスで<br>左右端の出口へ落とせ！</p>
-        <p>通常カバ1点<br>サングラスカバ5点<br>王冠カバ10点</p>
+        <p>山積みのカバぬいに重りを落とそう！</p>
+        <p>3回のチャンスで左右端の出口へ落とせ！</p>
+        <p>通常カバ1点 ／ サングラス5点 ／ 王冠10点</p>
       </div>
 
       <button id="startBtn" class="mainBtn">タップしてスタート</button>
@@ -40,6 +40,8 @@
       </div>
 
       <div class="machine">
+        <div id="machineBackdrop" class="machineBackdrop" aria-hidden="true"></div>
+
         <div id="crane" class="crane">
           <div class="rail"></div>
           <div class="hook">▼</div>
@@ -69,7 +71,6 @@
       />
 
       <h2 id="resultTitle">結果</h2>
-
       <div id="resultScore" class="resultScore">0点</div>
 
       <div id="resultButtons" class="resultButtons hidden">
@@ -82,6 +83,6 @@
 
   </div>
 
-  <script src="game.js?v=20260601-1"></script>
+  <script src="game.js?v=20260824-1"></script>
 </body>
 </html>
